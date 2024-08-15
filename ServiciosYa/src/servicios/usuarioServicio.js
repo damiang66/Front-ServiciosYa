@@ -34,6 +34,7 @@ export const usuarioUpdate = async (id)=>{
 }
 export const usuarioDelete = async (id)=>{
     try {
+       
         const respuesta = await axios.delete(`${URL}/usuarios/${id}`)
         return respuesta; 
     } catch (error) {
