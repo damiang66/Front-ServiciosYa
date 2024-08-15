@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const usuarioInicial = {
-    id: 0,
+   
     password: '',
-    nombre: '',
+    nombres: '',
     direccion: '',
     documento: "",
-    apellido:"",
+    apellidos:"",
     telefono:"",
     email:"",
     genero:"",
@@ -16,10 +16,10 @@ export const usuarioInicial = {
 }
 const initialErrors = {
     password: '',
-    nombre: '',
+    nombres: '',
     direccion: '',
     documento: "",
-    apellido:"",
+    apellidos:"",
     telefono:"",
     email:"",
     genero:"",

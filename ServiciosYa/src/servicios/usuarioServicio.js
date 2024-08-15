@@ -18,6 +18,8 @@ export const usuarioFindById = async(id)=>{
 }
 export const usuarioSave= async (usuario)=>{
     try {
+        console.log(usuario);
+        
      const respuesta = await axios.post(`${URL}/usuarios`,usuario);  
      return respuesta;
     } catch (error) {
@@ -26,6 +28,8 @@ export const usuarioSave= async (usuario)=>{
 }
 export const usuarioUpdate = async (id)=>{
     try {
+        console.log(id);
+        
         const respuesta = await axios.put(`${URL}/usuarios/${id}`)
         return respuesta;
     } catch (error) {

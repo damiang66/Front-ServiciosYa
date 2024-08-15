@@ -10,8 +10,9 @@ function App() {
   return (
     <>
     <Provider store={store}>
-        
+  
         <UseRouter />
+       
        </Provider>
      </>
   )
