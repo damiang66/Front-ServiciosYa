@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { usuarioFindAll, usuarioSave, usuarioUpdate } from '../servicios/usuarioServicio';
+import { usuarioDelete, usuarioFindAll, usuarioSave, usuarioUpdate } from '../servicios/usuarioServicio';
 import { addUsuario, loadingUsuarios, onCloseForm, onError, onOpenForm, onUsuarioselectedForm, removeUsuario, updateUsuarios, usuarioInicial } from '../store/slices/usuarioSlice';
 import Swal from 'sweetalert2';
 
@@ -73,6 +73,8 @@ export const useUsuario = () => {
     }
 
     const handlerRemoveUsuario = (id) => {
+        
+        
         // console.log(id);
 
       //  if (!login.isAdmin) return;
@@ -86,10 +88,13 @@ export const useUsuario = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, eliminar!'
         }).then( async(result) => {
+         
             if (result.isConfirmed) {
-
+                
                 try {
+                 
                     await usuarioDelete(id);
+                  
                     dispatch(removeUsuario(id));
                     Swal.fire(
                         'Usuario Eliminado!',
@@ -98,6 +103,7 @@ export const useUsuario = () => {
                     );
                 } catch (error) {
                     if (error.response?.status == 401) {
+                        throw error;
                       //  handlerLogout();
                     }
                 }
