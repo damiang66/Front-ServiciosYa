@@ -61,11 +61,14 @@ export const useUsuario = () => {
         } catch (error) {
             if (error.response && error.response.status == 400) {
                dispatch( onError(error.response.data));
+               Swal.fire('Error', error.response.data , 'error')
           
             } else if (error.response?.status == 401) {
                 handlerLogout();
             } else if(error.response && error.response.status == 403) {
                Swal.fire('Error', 'error faltan datos o no tiene permisos para esta accion', 'warning');
+            } else if(error.response && error.response.status == 500) {
+                Swal.fire('Error', 'verifique bien los datos ingresados', 'warning');
             }else{
                 throw error;   
             }
