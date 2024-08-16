@@ -26,11 +26,11 @@ export const usuarioSave= async (usuario)=>{
         throw error;
     }
 }
-export const usuarioUpdate = async (id)=>{
+export const usuarioUpdate = async (usuario)=>{
     try {
-        console.log(id);
+       
         
-        const respuesta = await axios.put(`${URL}/usuarios/${id}`)
+        const respuesta = await axios.put(`${URL}/usuarios/${usuario.id}`,usuario)
         return respuesta;
     } catch (error) {
         throw error;

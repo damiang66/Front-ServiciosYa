@@ -34,7 +34,7 @@ export const useUsuario = () => {
         try {
             console.log(usuario.id);
 
-            if (usuario.id === undefined) {
+            if (usuario.id === 0) {
               
                 response = await usuarioSave(usuario);
                 dispatch(addUsuario(response.data))

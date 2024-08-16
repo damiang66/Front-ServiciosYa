@@ -14,8 +14,8 @@ const generos = [
 export const UsuarioForm = ({ usuarioSeleccionado }) => {
     const { usuarioInicial, handlerAddUsuario, errors, usuarios } = useUsuario();
     const [usuarioForm, setUsuarioForm] = useState({});
-    const {  nombres,apellidos, password, direcion, documento, telefono, email, genero, fechaDeNacimiento, nombreDeUsuario, roles = [] } = usuarioForm;
-    const [id,setId]=useState(0)
+    const { id, nombres,apellidos, password, direccion, documento, telefono, email, genero, fechaDeNacimiento, nombreDeUsuario, roles = [] } = usuarioForm;
+    //const [id,setId]=useState(0)
     const onSubmit = (event) => {
         event.preventDefault();
       handlerAddUsuario(usuarioForm);
@@ -76,7 +76,7 @@ export const UsuarioForm = ({ usuarioSeleccionado }) => {
                     {/* Campo Dirección */}
                     <div className='m-4'>
                         <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='direccion' id='direccion' value={direcion} onChange={onChangeInput} />
+                            <InputText className='form-control my-3 w-50' name='direccion' id='direccion' value={direccion} onChange={onChangeInput} />
                             <label htmlFor='direccion'>Dirección</label>
                         </FloatLabel>
                         <p className="text-danger">{errors?.direccion}</p>
@@ -121,7 +121,7 @@ export const UsuarioForm = ({ usuarioSeleccionado }) => {
                     {/* Dropdown de Género */}
                     <div className='m-4'>
                         <Dropdown
-                            value={usuarioForm.genero}
+                            value={genero}
                             options={generos}
                             onChange={onChangeDropdown}
                             placeholder="Seleccione Género"
