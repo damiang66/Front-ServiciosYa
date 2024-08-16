@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const usuarioInicial = {
-   
+   id:0,
     password: '',
     nombres: '',
     direccion: '',
@@ -10,7 +10,7 @@ export const usuarioInicial = {
     email:"",
     genero:"",
     fechaDeNacimiento:"",
-    edad:0,
+    edad:null,
     nombreDeUsuario:"",
     roles:[],
 }
