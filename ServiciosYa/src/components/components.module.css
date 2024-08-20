@@ -7,6 +7,8 @@
     justify-content: space-around;
     align-items: center;
     padding: 30px 0px;
+    position: fixed;
+    background-color: #fff;
 }
 
 .headerContainer {
@@ -38,3 +40,90 @@
     width: 20px
 
 }
+
+/*Banners*/
+
+.banner{
+    color: var(--darkBlue);
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;     
+}
+
+.banner h1{
+    font-size: 30px;
+    margin-left: 50px;
+}
+
+/*Cards*/
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
+    min-height: 300px;
+}
+
+.card {
+    color: var(--darkBlue);
+    width: 220px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card .icon {
+    border-radius: 10px;
+    border: 2px solid var(--blue);
+    width: 150px;
+    height: 150px;
+}
+
+.card img {
+    border-radius: 10px;
+    border: 2px solid var(--blue);
+    width: 150px;
+    height: 150px;
+}
+
+.card p {
+    width: 150px;
+}
+
+.professional-Cards .cards{
+    width: 100%;
+}
+
+.professional-Cards .cards .card{
+    width: 25%;
+    height: 250px;
+    position: relative;
+    border-radius: 0px;
+}
+
+.professional-Cards .cards .card img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+}
+
+.professional-Cards .cards .card figcaption{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.144);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    bottom: 0;
+    padding: 10px 0 5px 10px;
+}
+
