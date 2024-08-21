@@ -9,6 +9,7 @@
     padding: 30px 0px;
     position: fixed;
     background-color: #fff;
+    z-index: 99;
 }
 
 .headerContainer {
@@ -46,7 +47,7 @@
 .banner{
     color: var(--darkBlue);
     width: 100%;
-    height: 300px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,10 +82,8 @@
 }
 
 .card .icon {
-    border-radius: 10px;
-    border: 2px solid var(--blue);
     width: 150px;
-    height: 150px;
+    height: 80px;
 }
 
 .card img {
@@ -97,6 +96,8 @@
 .card p {
     width: 150px;
 }
+
+/*Cards de los profesionales*/
 
 .professional-Cards .cards{
     width: 100%;
@@ -127,3 +128,49 @@
     padding: 10px 0 5px 10px;
 }
 
+/*Banner de testimonios*/
+
+.user-review {
+    width: 100%;
+    min-height: 400px;
+    background-color: var(--light1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-review p {
+    font-size: 36px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.user-review strong {
+    align-self: flex-end;
+    font-size: 20px;
+}
+
+/*Pie de pagina*/
+
+/*Footer*/
+footer {
+    width: 100%;
+    height: 120px;
+    background-color: var(--darkBlue);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    position: static;
+    bottom: 0;
+}
+
+footer small {
+    margin-top: 1em;
+}

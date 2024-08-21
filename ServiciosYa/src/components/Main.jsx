@@ -1,6 +1,6 @@
 import Card from './Card'
-import styles from './components.module.css'
 import ProfessionaCard from './ProfessionaCard'
+import styles from './components.module.css'
 
 function Main() {
   return (
@@ -27,9 +27,15 @@ function Main() {
           <ProfessionaCard />
         </div>
       </section>
-      <section className={styles["seccion"]}></section>
+      <section className={styles["user-review"]}>
+        <p>
+          *Review positiva de un usuario agradecido y satisfecho con el servicio y el profesional que fue enviado a su hogar*
+          <strong>-Usuario satisfecho*</strong>
+        </p>
+      </section>
       <section className={styles["seccion"]}></section>
     </main>
+    
   )
 }
 
