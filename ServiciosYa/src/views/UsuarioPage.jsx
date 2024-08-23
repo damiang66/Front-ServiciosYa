@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { FloatLabel } from 'primereact/floatlabel';
 import { UsuarioList } from '../components/UsuarioList';
 import Swal from 'sweetalert2';
 import { useUsuario } from '../hooks/useUsuario';
 import { useNavigate } from 'react-router-dom';
+
 export const UsuarioPage = () => {
     
     const {usuarios,getUsuario}=useUsuario();
     const navegar = useNavigate()
     const abrirFormulario = ()=>{
-        navegar('/usuarios/registrar')
+        navegar('/usuarioRegistroPage')
     }
     useEffect(()=>{
 getUsuario()

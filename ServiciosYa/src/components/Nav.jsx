@@ -5,8 +5,8 @@ function Nav() {
   return (
     <div className={styles["navLinks"]}>
       <Link to="/" ><img src="/search.svg" alt="search" /></Link>
-      <Link to="/" >LogIn</Link>
-      <Link to="/" >Register</Link>
+      <Link to="/usuarioPage" >UserPage</Link>
+      <Link to="/usuarioRegistroPage" >UserReg</Link>
     </div>
   )
 }
