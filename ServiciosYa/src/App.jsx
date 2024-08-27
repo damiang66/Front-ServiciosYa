@@ -1,8 +1,9 @@
 
 import './App.css'
 import { Provider } from 'react-redux'
-import { UseRouter } from './router/useRouter'
+
 import { store } from './store/store'
+import { AppRouter } from './router/AppRouter'
 
 function App() {
  
@@ -11,7 +12,7 @@ function App() {
     <>
     <Provider store={store}>
   
-        <UseRouter />
+      <AppRouter/>
        
        </Provider>
      </>
