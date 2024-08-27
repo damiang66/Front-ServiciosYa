@@ -1,3 +1,4 @@
+import styles from './components.module.css'
 import React, { useEffect, useState } from 'react';
 import { useUsuario } from '../hooks/useUsuario';
 const generos = [
@@ -36,90 +37,94 @@ export const UsuarioForm = ({ usuarioSeleccionado }) => {
     };
 
     return (
-        <>
-            <div>
-                <form onSubmit={onSubmit}>
-                    {/* Campo Nombre */}
+        <section>
+            <form className={styles['user-form']} onSubmit={onSubmit}>
+                {/* Campo Nombre */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input name='nombres' id='nombre' value={nombres} onChange={onChangeInput} />
-                            <label htmlFor='nombre'>Nombre</label>
-                        </div>
-                        <p>{errors?.nombres}</p>
+                        <label htmlFor='nombre'>Nombre</label>
+                        <input name='nombres' id='nombre' value={nombres} onChange={onChangeInput} />
                     </div>
-                    {/* Campo Nombre */}
+                    <p>{errors?.nombres}</p>
+                </div>
+                {/* Campo Nombre */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input name='apellidos' id='apellido' value={apellidos} onChange={onChangeInput} />
-                            <label htmlFor='apellido'>Apellido</label>
-                        </div>
-                        <p>{errors?.nombres}</p>
+                        <label htmlFor='apellido'>Apellido</label>
+                        <input name='apellidos' id='apellido' value={apellidos} onChange={onChangeInput} />
                     </div>
-                    {/* Campo fecha de Nacimiento */}
+                    <p>{errors?.nombres}</p>
+                </div>
+                {/* Campo fecha de Nacimiento */}
+                <div className={styles['form-row']}>
                     <div>
+                        <label htmlFor="fechaDeNacimiento">Fecha de Nacimiento</label>
                         <input type='date' name='fechaDeNacimiento' value={fechaDeNacimiento} onChange={onChangeInput} />
                     </div>
-                    {/* Campo Password */}
+                </div>
+                {/* Campo Password */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input type='password' name='password' id='password' value={password} onChange={onChangeInput} />
-                            <label htmlFor='password'>Password</label>
-                        </div>
-                        <p>{errors?.password}</p>
+                        <label htmlFor='password'>Password</label>
+                        <input type='password' name='password' id='password' value={password} onChange={onChangeInput} />
                     </div>
+                    <p>{errors?.password}</p>
+                </div>
 
-                    {/* Campo Dirección */}
+                {/* Campo Dirección */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input name='direccion' id='direccion' value={direccion} onChange={onChangeInput} />
-                            <label htmlFor='direccion'>Dirección</label>
-                        </div>
-                        <p>{errors?.direccion}</p>
+                        <label htmlFor='direccion'>Dirección</label>
+                        <input name='direccion' id='direccion' value={direccion} onChange={onChangeInput} />
                     </div>
+                    <p>{errors?.direccion}</p>
+                </div>
 
-                    {/* Campo Documento */}
+                {/* Campo Documento */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input name='documento' id='documento' value={documento} onChange={onChangeInput} />
-                            <label htmlFor='documento'>Documento</label>
-                        </div>
-                        <p>{errors?.documento}</p>
+                        <label htmlFor='documento'>Documento</label>
+                        <input name='documento' id='documento' value={documento} onChange={onChangeInput} />
                     </div>
+                    <p>{errors?.documento}</p>
+                </div>
 
-                    {/* Campo Teléfono */}
+                {/* Campo Teléfono */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input name='telefono' id='telefono' value={telefono} onChange={onChangeInput} />
-                            <label htmlFor='telefono'>Teléfono</label>
-                        </div>
-                        <p>{errors?.telefono}</p>
+                        <label htmlFor='telefono'>Teléfono</label>
+                        <input name='telefono' id='telefono' value={telefono} onChange={onChangeInput} />
                     </div>
+                    <p>{errors?.telefono}</p>
+                </div>
 
-                    {/* Campo Email */}
+                {/* Campo Email */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input name='email' id='email' value={email} onChange={onChangeInput} />
-                            <label htmlFor='email'>Email</label>
-                        </div>
-                        <p>{errors?.email}</p>
+                        <label htmlFor='email'>Email</label>
+                        <input name='email' id='email' value={email} onChange={onChangeInput} />
                     </div>
+                    <p>{errors?.email}</p>
+                </div>
 
-                    {/* Campo Nombre de Usuario */}
+                {/* Campo Nombre de Usuario */}
+                <div className={styles['form-row']}>
                     <div>
-                        <div>
-                            <input name='nombreDeUsuario' id='nombreDeUsuario' value={nombreDeUsuario} onChange={onChangeInput} />
-                            <label htmlFor='nombreDeUsuario'>Nombre de Usuario</label>
-                        </div>
-                        <p>{errors?.nombreDeUsuario}</p>
+                        <label htmlFor='nombreDeUsuario'>Nombre de Usuario</label>
+                        <input name='nombreDeUsuario' id='nombreDeUsuario' value={nombreDeUsuario} onChange={onChangeInput} />
                     </div>
+                    <p>{errors?.nombreDeUsuario}</p>
+                </div>
 
-                    {/* Dropdown de Género */}
+                {/* Dropdown de Género */}
+                <div className={styles['form-row']}>
+                    <label>Genero: </label>
                     <select onChange={onChangeDropdown}>
                         {generos.map((genero) => (
                             <option
                                 key={genero.value}
                                 value={genero.value}
-                                
+
                             >
                                 {genero.label}
                             </ option>
@@ -127,16 +132,16 @@ export const UsuarioForm = ({ usuarioSeleccionado }) => {
 
                     </select>
                     <p>{errors?.genero}</p>
+                </div>
 
-                    {/* Input Hidden */}
-                    <input type="hidden" name="id" value={id} />
+                {/* Input Hidden */}
+                <input type="hidden" name="id" value={id} />
 
-                    {/* Botón */}
-                    <button type="submit">
-                        {id > 0 ? 'Editar' : 'Crear'}
-                    </button>
-                </form>
-            </div>
-        </>
+                {/* Botón */}
+                <button type="submit">
+                    {id > 0 ? 'Editar' : 'Crear'}
+                </button>
+            </form>
+        </section>
     );
 };
