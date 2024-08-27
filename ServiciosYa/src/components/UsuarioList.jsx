@@ -7,7 +7,7 @@ export const UsuarioList = ({ usuarios }) => {
   const { handlerRemoveUsuario } = useUsuario()
   const editar = (rowData) => {
     return (
-      <NavLink className="btn btn-primary" to={`/usuarios/registrar/${rowData.id}`}>
+      <NavLink className="btn btn-primary" to={`/usuarioRegistroPage/${rowData.id}`}>
         Editar
       </NavLink>
     );

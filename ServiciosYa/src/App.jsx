@@ -12,6 +12,7 @@ function App() {
   const router = createBrowserRouter([
     { path: "/", element: <Home /> },
     { path: "/usuarioPage", element: <UsuarioPage /> },
+    { path: "/usuarioRegistroPage/:id", element: <UsuarioRegistroPage /> },
     { path: "/usuarioRegistroPage", element: <UsuarioRegistroPage /> }
   ])
 
