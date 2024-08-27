@@ -11,9 +11,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <BrowserRouter>
   <PrimeReactProvider/>
+ 
 {/* esto se utiliza con context <AuthProvider> */}
       <App />
 {/* </AuthProvider>*/}
+
   </BrowserRouter>
 </React.StrictMode>
 )

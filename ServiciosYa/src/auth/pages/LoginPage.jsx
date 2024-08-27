@@ -2,13 +2,21 @@ import {  useState } from "react";
 import Swal from "sweetalert2";
 
 import { useAuth } from './../hooks/useAuth';
+import { GoogleLogin } from "@react-oauth/google";
 
 const initialLoginForm = {
     nombreDeUsuario: '',
     password: '',
 }
 export const LoginPage = () => {
-
+    const handleLoginSuccess = (response) => {
+        // Aquí puedes manejar el token de Google y realizar autenticaciones adicionales si es necesario
+        console.log('Login successful:', response);
+      };
+    
+      const handleLoginFailure = (error) => {
+        console.error('Login failed:', error);
+      };
     const { handlerLogin } = useAuth();;
     
     const [loginForm, setLoginForm] = useState(initialLoginForm);
@@ -44,7 +52,7 @@ export const LoginPage = () => {
                         <div className="modal-body">
                             <input
                                 className="form-control my-3 w-75"
-                                placeholder="nombreDeUsuario"
+                                placeholder="nombre de Usuario"
                                 name="nombreDeUsuario"
                                 value={nombreDeUsuario}
                                 onChange={ onInputChange }
@@ -66,6 +74,7 @@ export const LoginPage = () => {
                                 Login
                             </button>
                         </div>
+                     
                     </form>
                 </div>
             </div>
