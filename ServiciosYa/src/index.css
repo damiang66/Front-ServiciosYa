@@ -1,0 +1,28 @@
+body {
+  width: 100%;
+}
+:root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --darkBlue: rgba(0, 51, 102, 1);
+  --lightGreen: rgba(102, 204, 153, 1);
+  --lightGrey: rgba(240, 240, 240, 1);
+  --softYellow: rgba(255, 255, 153, 1);
+  --softRed: rgba(255, 102, 102, 1);
+}
+
+#root,
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

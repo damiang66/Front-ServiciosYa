@@ -1,15 +1,7 @@
-main{
-    z-index: 50;
-}
-
-section{
-    width: 100%;
+.user-page{
+    min-height: 508px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-section h1{
-    margin-bottom: 20px;
 }

@@ -57,7 +57,7 @@ export const useUsuario = () => {
             );
             handlerCloseForm();
             // cambiar
-            navigate('/usuarios');
+            navigate('/');
         } catch (error) {
             if (error.response && error.response.status == 400) {
                dispatch( onError(error.response.data));
