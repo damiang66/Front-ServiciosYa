@@ -8,7 +8,7 @@ import { onLogin, onLogout } from "../../store/slices/authSlice";
 export const useAuth = () => {
 const dispatch=useDispatch();
 const {user,isAdmin,isAuth}= useSelector(state=>state.auth)
-    //const [login, dispatch] = useReducer(loginReducer, initialLogin);
+    // const [login, dispatch] = useReducer(loginReducer, initialLogin);
     const navigate = useNavigate();
 
     const handlerLogin = async ({ nombreDeUsuario, password }) => {

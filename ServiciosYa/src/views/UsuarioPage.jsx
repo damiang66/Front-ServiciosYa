@@ -11,7 +11,7 @@ export const UsuarioPage = () => {
     const { usuarios, getUsuario } = useUsuario();
     const navegar = useNavigate()
     const abrirFormulario = () => {
-        navegar('/usuarioRegistroPage')
+        navegar('/usuarios/registrar')
     }
     useEffect(() => {
         getUsuario()
