@@ -1,11 +1,14 @@
 import './App.css'
+
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import Home from './views/Home.jsx'
-import { UsuarioPage } from './views/UsuarioPage.jsx'
-import { UsuarioRegistroPage } from './views/UsuarioRegistroPage.jsx'
+import Home from './views/home.jsx'
+
 import { Provider } from 'react-redux'
-import {store} from './store/store.js'
+
+import { store } from './store/store'
+import { AppRouter } from './router/AppRouter'
+
 
 function App() {
 
@@ -18,10 +21,17 @@ function App() {
 
   return (
     <>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
+
+     <RouterProvider router={router} />
     </>
+
+    <Provider store={store}>
+  
+      <AppRouter/>
+       
+       </Provider>
+     </>
+
   )
 }
 
