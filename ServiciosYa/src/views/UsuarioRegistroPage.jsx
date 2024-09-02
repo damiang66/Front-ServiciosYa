@@ -36,9 +36,10 @@ export const UsuarioRegistroPage = () => {
   return (
     <>
       <Header />
-      <h4>{usuarioSeleccionado.id > 0 ? 'Editar' : 'Registrar'}Usuario</h4>
       <main>
-        <UsuarioForm usuarioSeleccionado={usuarioSeleccionado} />
+        <section>
+          <UsuarioForm usuarioSeleccionado={usuarioSeleccionado} />
+        </section>
       </main>
       <Footer />
     </>

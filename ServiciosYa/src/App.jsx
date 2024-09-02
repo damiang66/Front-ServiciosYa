@@ -6,6 +6,7 @@ import { UsuarioRegistroPage } from './views/UsuarioRegistroPage.jsx'
 import { Provider } from 'react-redux'
 import { store } from './store/store.js'
 import { Home } from './views/home.jsx'
+import { LoginPage } from './auth/pages/LoginPage.jsx' 
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
     { path: "/", element: <Home /> },
     { path: "/usuario", element: <UsuarioPage /> },
     { path: "/usuarios/registrar", element: <UsuarioRegistroPage /> },
-    { path: "/usuarios/registrar/:id", element: <UsuarioRegistroPage /> }
+    { path: "/usuarios/registrar/:id", element: <UsuarioRegistroPage /> },
+    { path: "/login", element: <LoginPage /> }
   ])
 
   return (

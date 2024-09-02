@@ -33,9 +33,7 @@ function Main() {
           <strong>-Usuario satisfecho*</strong>
         </p>
       </section>
-      <section className={styles["seccion"]}></section>
     </main>
-    
   )
 }
 
