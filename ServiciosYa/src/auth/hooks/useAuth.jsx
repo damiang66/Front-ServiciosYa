@@ -26,7 +26,7 @@ export const useAuth = () => {
             }));
             sessionStorage.setItem('token', `Bearer ${token}`);
 
-            navigate('/usuarios');
+            navigate('/usuario');
         } catch (error) {
             if (error.response?.status === 401) {
                 Swal.fire('Error Login', 'Username o password inválidos', 'error');
