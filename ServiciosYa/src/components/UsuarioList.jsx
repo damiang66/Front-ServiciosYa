@@ -6,7 +6,7 @@ export const UsuarioList = ({ usuarios }) => {
   const { handlerRemoveUsuario } = useUsuario()
   const editar = (rowData) => {
     return (
-      <NavLink className="btn btn-primary" to={`/usuarioRegistroPage/${rowData}`}>
+      <NavLink className="btn btn-primary" to={`/usuarios/registrar/${rowData}`}>
         Editar
       </NavLink>
     );
@@ -14,14 +14,14 @@ export const UsuarioList = ({ usuarios }) => {
 
   const eliminar = (rowData) => {
     return (
-      <button className="btn btn-danger" onClick={() => handlerRemoveUsuario(rowData)}>
+      <button className={styles["deleteButton"]} onClick={() => handlerRemoveUsuario(rowData)}>
         Eliminar
       </button>
     );
   };
   return (
     <>
-      <table id="tabla" className={styles["booktable"]}>
+      <table id="tabla" className={styles["user-table"]}>
         <thead>
           <tr>
             <th>ID</th>
@@ -34,13 +34,13 @@ export const UsuarioList = ({ usuarios }) => {
         </thead>
         <tbody>
           {usuarios.map((usuario) => (
-            <tr className={styles["bookTable"]}>
+            <tr className={styles["user-Table"]}>
               <td>{usuario.id}</td>
               <td>{usuario.nombres}</td>
               <td>{usuario.apellidos}</td>
               <td>{usuario.email}</td>
               <td><button >{editar(usuario.id)}</button></td>
-              <td><button >{eliminar(usuario.id)}</button></td>
+              <td>{eliminar(usuario.id)}</td>
             </tr>
           ))}
         </tbody>

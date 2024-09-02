@@ -11,7 +11,7 @@ export const UsuarioPage = () => {
     const { usuarios, getUsuario } = useUsuario();
     const navegar = useNavigate()
     const abrirFormulario = () => {
-        navegar('/usuarioRegistroPage')
+        navegar('/usuarios/registrar')
     }
     useEffect(() => {
         getUsuario()
@@ -23,19 +23,15 @@ export const UsuarioPage = () => {
             <Header />
             <main className={styles['user-page']}>
                 <h1>Sección Usuario</h1>
-
-
                     <section>
-
-                        <button className="btn btn-primary my-2" onClick={abrirFormulario}>
-                            Nuevo Usuario
-                        </button>
-
                         {
                             usuarios.length === 0
                                 ? <div className="alert alert-warning">No hay ofertas en el sistema!</div>
                                 : <UsuarioList usuarios={usuarios} />
                         }
+                        <button className={styles["create-button"]} onClick={abrirFormulario}>
+                            Nuevo Usuario
+                        </button>
                     </section>
             </main>
             <Footer />

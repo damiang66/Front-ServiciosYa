@@ -10,6 +10,8 @@
     position: fixed;
     background-color: #fff;
     z-index: 99;
+    top: 0;
+    left: 0;
 }
 
 .headerContainer {
@@ -157,73 +159,71 @@
 /*User Register-Edit*/
 
 .user-form {
-    width: 70%;
-    height: 494px;
+    width: 40%;
+    height: 400px;
+    padding: 10px 0 10px 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    border: 2px solid var(--blue-300);
+    border-radius: 5px;
 }
 
 .user-form .form-row {
-    width: 70%;
+    width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .user-form .form-row div {
-    width: 90%;
+    width: 45%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
 }
 
-.user-form .form-row div input,.user-form .form-row select {
-    padding: 5px;
+.user-form .form-row div input,
+.user-form .form-row select {
+    padding: 8px;
+    border: 1px solid var(--blue-300);
+    border-radius: 5px;
+    outline: none;
+}
+
+.user-form .form-row div input:focus,
+.user-form .form-row select:focus {
+    outline: 2px solid var(--darkBlue);
+    border: none;
 }
 
 /*User List*/
 
-.booktable {
-    width: 70%;
+.user-table {
+    width: 100%;
     border-collapse: separate;
 }
 
-.booktable th {
-}
-
-.booktable th,
-.booktable td {
+.user-table th,
+.user-table td {
     padding: 10px;
     text-align: left;
     text-align: center;
 }
 
-.booktable button {
-    color: black;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    font-size: 12px;
-    padding: 8px 12px;
-    transition: 0.2s ease;
-}
-
-.booktable button:hover {
-    cursor: pointer;
-    background-color: white;
-}
-
-.booktable .deleteButton {
+.user-table .deleteButton {
     background-color: rgb(161, 0, 0);
-}
-
-.booktable .deleteButton:hover {
-    color: rgb(161, 0, 0);
     border: 2px solid rgb(161, 0, 0);
 }
 
-.booktable tfoot td {
+.user-table .deleteButton:hover {
+    color: rgb(161, 0, 0);
+    background-color: #fff;
+    border: 2px solid rgb(161, 0, 0);
+}
+
+.user-table tfoot td {
     text-align: right;
     border: none;
 }

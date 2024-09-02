@@ -1,19 +1,21 @@
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import Home from './views/Home.jsx'
 import { UsuarioPage } from './views/UsuarioPage.jsx'
 import { UsuarioRegistroPage } from './views/UsuarioRegistroPage.jsx'
 import { Provider } from 'react-redux'
-import {store} from './store/store.js'
+import { store } from './store/store.js'
+import { Home } from './views/home.jsx'
+import { LoginPage } from './auth/pages/LoginPage.jsx' 
 
 function App() {
 
   const router = createBrowserRouter([
     { path: "/", element: <Home /> },
-    { path: "/usuarioPage", element: <UsuarioPage /> },
-    { path: "/usuarioRegistroPage/:id", element: <UsuarioRegistroPage /> },
-    { path: "/usuarioRegistroPage", element: <UsuarioRegistroPage /> }
+    { path: "/usuario", element: <UsuarioPage /> },
+    { path: "/usuarios/registrar", element: <UsuarioRegistroPage /> },
+    { path: "/usuarios/registrar/:id", element: <UsuarioRegistroPage /> },
+    { path: "/login", element: <LoginPage /> }
   ])
 
   return (
