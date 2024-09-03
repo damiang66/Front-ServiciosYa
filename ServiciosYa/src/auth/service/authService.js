@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const loginUser = async ({nombreDeUsuario,password})=>{
+export const loginUser = async ({email,password})=>{
     try {
-        return await axios.post('http://localhost:8080/login',{nombreDeUsuario,password})
+        return await axios.post('http://localhost:8080/login',{email,password})
     } catch (error) {
         throw error;
     }

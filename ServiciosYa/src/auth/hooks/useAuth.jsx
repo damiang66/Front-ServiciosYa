@@ -9,14 +9,14 @@ export const useAuth = () => {
  const { user, isAdmin, isAuth } = useSelector(state => state.auth || { user: null, isAdmin: false, isAuth: false });
     const navigate = useNavigate();
 
-    const handlerLogin = async ({ nombreDeUsuario, password }) => {
+    const handlerLogin = async ({ email, password }) => {
         try {
-            const response = await loginUser({ nombreDeUsuario, password });
+            const response = await loginUser({ email, password });
             const token = response.data.token;
             const claims = JSON.parse(window.atob(token.split(".")[1]));
             console.log(claims);
 
-            const user = { nombreDeUsuario: claims.sub };
+            const user = { email: claims.sub };
             dispatch(onLogin({ user, isAdmin: claims.isAdmin }));
 
             sessionStorage.setItem('login', JSON.stringify({
@@ -29,7 +29,7 @@ export const useAuth = () => {
             navigate('/vendedorPrincipal');
         } catch (error) {
             if (error.response?.status === 401) {
-                Swal.fire('Error Login', 'Username o password inválidos', 'error');
+                Swal.fire('Error Login', 'Email o password inválidos', 'error');
             } else if (error.response?.status === 403) {
                 Swal.fire('Error Login', 'No tiene acceso al recurso o permisos!', 'error');
             } else {

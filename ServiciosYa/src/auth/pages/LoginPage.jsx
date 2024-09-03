@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth.jsx';
 // import { GoogleLogin } from "@react-oauth/google";
 
 const initialLoginForm = {
-    nombreDeUsuario: '',
+    email: '',
     password: '',
 }
 
@@ -21,7 +21,7 @@ export const LoginPage = () => {
     const { handlerLogin } = useAuth();;
 
     const [loginForm, setLoginForm] = useState(initialLoginForm);
-    const { nombreDeUsuario, password } = loginForm;
+    const { email, password } = loginForm;
 
     const onInputChange = ({ target }) => {
         const { name, value } = target;
@@ -33,12 +33,12 @@ export const LoginPage = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        if (!nombreDeUsuario || !password) {
-            Swal.fire('Error de validacion', 'Nombre de Usuario y password requeridos', 'error');
+        if (!email || !password) {
+            Swal.fire('Error de validacion', 'Email y contraseña requeridos', 'error');
         }
 
         // aca implementamos el login
-        handlerLogin({ nombreDeUsuario, password });
+        handlerLogin({ email, password });
 
         setLoginForm(initialLoginForm);
     }
@@ -53,9 +53,9 @@ export const LoginPage = () => {
                         <div className="modal-body">
                             <input
                                 className="form-control my-3 w-75"
-                                placeholder="nombre de Usuario"
-                                name="nombreDeUsuario"
-                                value={nombreDeUsuario}
+                                placeholder="nombre@email.com"
+                                name="email"
+                                value={email}
                                 onChange={onInputChange}
                             />
 
