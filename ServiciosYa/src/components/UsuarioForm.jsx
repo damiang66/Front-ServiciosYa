@@ -1,10 +1,6 @@
+import styles from './components.module.css'
 import React, { useEffect, useState } from 'react';
 import { useUsuario } from '../hooks/useUsuario';
-import { FloatLabel } from 'primereact/floatlabel';
-import { InputText } from 'primereact/inputtext';
-import { Dropdown } from 'primereact/dropdown';
-import { Calendar } from 'primereact/calendar';
-
 const generos = [
     { label: 'Hombre', value: 'HOMBRE' },
     { label: 'Mujer', value: 'MUJER' },
@@ -14,11 +10,11 @@ const generos = [
 export const UsuarioForm = ({ usuarioSeleccionado }) => {
     const { usuarioInicial, handlerAddUsuario, errors, usuarios } = useUsuario();
     const [usuarioForm, setUsuarioForm] = useState({});
-    const { id, nombres,apellidos, password, direccion, documento, telefono, email, genero, fechaDeNacimiento, nombreDeUsuario, roles = [] } = usuarioForm;
+    const { id, nombres, apellidos, password, direccion, documento, telefono, email, genero, fechaDeNacimiento, nombreDeUsuario, roles = [] } = usuarioForm;
     //const [id,setId]=useState(0)
     const onSubmit = (event) => {
         event.preventDefault();
-      handlerAddUsuario(usuarioForm);
+        handlerAddUsuario(usuarioForm);
     };
 
     useEffect(() => {
@@ -36,109 +32,101 @@ export const UsuarioForm = ({ usuarioSeleccionado }) => {
     const onChangeDropdown = (e) => {
         setUsuarioForm({
             ...usuarioForm,
-            genero: e.value
+            genero: e.target.value
         });
     };
 
     return (
-        <>
-            <div className="container m-2">
-                <form onSubmit={onSubmit}>
-                    {/* Campo Nombre */}
-                    <div className='m-4'>
-                        <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='nombres' id='nombre' value={nombres} onChange={onChangeInput} />
-                            <label htmlFor='nombre'>Nombre</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.nombres}</p>
-                    </div>
-                      {/* Campo Nombre */}
-                      <div className='m-4'>
-                        <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='apellidos' id='apellido' value={apellidos} onChange={onChangeInput} />
-                            <label htmlFor='apellido'>Apellido</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.nombres}</p>
-                    </div>
-                    {/* Campo fecha de Nacimiento */}
-                    <div className='m-4'>
-                    <Calendar name='fechaDeNacimiento' value={fechaDeNacimiento} onChange={onChangeInput} />
-                    </div>
-                    {/* Campo Password */}
-                    <div className='m-4'>
-                        <FloatLabel>
-                            <InputText type='password' className='form-control my-3 w-50' name='password' id='password' value={password} onChange={onChangeInput} />
-                            <label htmlFor='password'>Password</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.password}</p>
-                    </div>
-
-                    {/* Campo Dirección */}
-                    <div className='m-4'>
-                        <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='direccion' id='direccion' value={direccion} onChange={onChangeInput} />
-                            <label htmlFor='direccion'>Dirección</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.direccion}</p>
-                    </div>
-
-                    {/* Campo Documento */}
-                    <div className='m-4'>
-                        <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='documento' id='documento' value={documento} onChange={onChangeInput} />
-                            <label htmlFor='documento'>Documento</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.documento}</p>
-                    </div>
-
-                    {/* Campo Teléfono */}
-                    <div className='m-4'>
-                        <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='telefono' id='telefono' value={telefono} onChange={onChangeInput} />
-                            <label htmlFor='telefono'>Teléfono</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.telefono}</p>
-                    </div>
-
-                    {/* Campo Email */}
-                    <div className='m-4'>
-                        <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='email' id='email' value={email} onChange={onChangeInput} />
-                            <label htmlFor='email'>Email</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.email}</p>
-                    </div>
-
-                    {/* Campo Nombre de Usuario */}
-                    <div className='m-4'>
-                        <FloatLabel>
-                            <InputText className='form-control my-3 w-50' name='nombreDeUsuario' id='nombreDeUsuario' value={nombreDeUsuario} onChange={onChangeInput} />
-                            <label htmlFor='nombreDeUsuario'>Nombre de Usuario</label>
-                        </FloatLabel>
-                        <p className="text-danger">{errors?.nombreDeUsuario}</p>
-                    </div>
-
-                    {/* Dropdown de Género */}
-                    <div className='m-4'>
-                        <Dropdown
-                            value={genero}
-                            options={generos}
-                            onChange={onChangeDropdown}
-                            placeholder="Seleccione Género"
-                            className="w-50 my-3"
-                        />
-                        <p className="text-danger">{errors?.genero}</p>
-                    </div>
-
-                    {/* Input Hidden */}
-                    <input type="hidden" name="id" value={id} />
-
-                    {/* Botón */}
-                    <button className="btn btn-primary" type="submit">
-                        {id > 0 ? 'Editar' : 'Crear'}
-                    </button>
-                </form>
+        <form className={styles['user-form']} onSubmit={onSubmit}>
+            <h4>{usuarioSeleccionado.id > 0 ? 'Editar' : 'Registrar'}Usuario</h4>
+            {/* Campo Nombre */}
+            <div className={styles['form-row']}>
+                <div>
+                    <label htmlFor='nombre'>Nombre</label>
+                    <input name='nombres' id='nombre' value={nombres} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.nombres}</p>
+                <div>
+                    <label htmlFor='apellido'>Apellido</label>
+                    <input name='apellidos' id='apellido' value={apellidos} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.nombres}</p>
             </div>
-        </>
+            {/* Campo fecha de Nacimiento */}
+            {/* Campo Password */}
+            <div className={styles['form-row']}>
+                <div>
+                    <label htmlFor="fechaDeNacimiento">Fecha de Nacimiento</label>
+                    <input type='date' name='fechaDeNacimiento' value={fechaDeNacimiento} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.date}</p>
+                <div>
+                    <label htmlFor='password'>Password</label>
+                    <input type='password' name='password' id='password' value={password} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.password}</p>
+            </div>
+            {/* Campo Dirección */}
+            {/* Campo Documento */}
+            <div className={styles['form-row']}>
+                <div>
+                    <label htmlFor='direccion'>Dirección</label>
+                    <input name='direccion' id='direccion' value={direccion} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.direccion}</p>
+                <div>
+                    <label htmlFor='documento'>Documento</label>
+                    <input name='documento' id='documento' value={documento} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.documento}</p>
+            </div>
+            {/* Campo Teléfono */}
+            {/* Campo Email */}
+            <div className={styles['form-row']}>
+                <div>
+                    <label htmlFor='telefono'>Teléfono</label>
+                    <input name='telefono' id='telefono' value={telefono} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.telefono}</p>
+                <div>
+                    <label htmlFor='email'>Email</label>
+                    <input name='email' id='email' value={email} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.email}</p>
+            </div>
+            {/* Campo Nombre de Usuario */}
+            {/* Dropdown de Género */}
+            <div className={styles['form-row']}>
+                <div>
+                    <label htmlFor='nombreDeUsuario'>Nombre de Usuario</label>
+                    <input name='nombreDeUsuario' id='nombreDeUsuario' value={nombreDeUsuario} onChange={onChangeInput} />
+                </div>
+                <p>{errors?.nombreDeUsuario}</p>
+                <div>
+                    <p>{errors?.nombreDeUsuario}</p>
+                    <label>Genero: </label>
+                    <select onChange={onChangeDropdown}>
+                        {generos.map((genero) => (
+                            <option
+                                key={genero.value}
+                                value={genero.value}
+
+                            >
+                                {genero.label}
+                            </ option>
+                        ))}
+
+                    </select>
+                </div>
+                <p>{errors?.genero}</p>
+            </div>
+            {/* Input Hidden */}
+            <input type="hidden" name="id" value={id} />
+
+            {/* Botón */}
+            <button type="submit">
+                {id > 0 ? 'Editar' : 'Crear'}
+            </button>
+        </form>
     );
 };

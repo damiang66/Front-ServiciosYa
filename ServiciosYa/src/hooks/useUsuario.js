@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { usuarioDelete, usuarioFindAll, usuarioSave, usuarioUpdate } from '../servicios/usuarioServicio';
@@ -57,7 +56,7 @@ export const useUsuario = () => {
             );
             handlerCloseForm();
             // cambiar
-            navigate('/usuarios');
+            navigate('/');
         } catch (error) {
             if (error.response && error.response.status == 400) {
                dispatch( onError(error.response.data));
